@@ -23,7 +23,7 @@ const PokemonType = new GraphQLObjectType({
   }),
 });
 
-// Sprites Types
+// Pokemon - Sprites Types
 const SpritesType = new GraphQLObjectType({
   name: 'Sprites',
   fields: () => ({
@@ -32,7 +32,7 @@ const SpritesType = new GraphQLObjectType({
   }),
 });
 
-// Abilities Type
+// Pokemon - Abilities Type
 const AbilitiesType = new GraphQLObjectType({
   name: 'Abilities',
   fields: () => ({
@@ -47,7 +47,7 @@ const AbilitiesType = new GraphQLObjectType({
   }),
 });
 
-// Stats Type
+// Pokemon - Stats Type
 const StatsType = new GraphQLObjectType({
   name: 'Stats',
   fields: () => ({
@@ -64,7 +64,7 @@ const StatsType = new GraphQLObjectType({
   }),
 });
 
-// Types Type
+// Pokemon - Types Type
 const TypesType = new GraphQLObjectType({
   name: 'Types',
   fields: () => ({
@@ -73,6 +73,68 @@ const TypesType = new GraphQLObjectType({
         name: 'Type',
         fields: () => ({
           name: { type: GraphQLString },
+        }),
+      }),
+    },
+  }),
+});
+
+// Species Types
+const SpeciesType = new GraphQLObjectType({
+  name: 'Species',
+  fields: () => ({
+    id: { type: GraphQLInt },
+    name: { type: GraphQLString },
+    names: { type: new GraphQLList(NamesTypes) },
+    genera: { type: new GraphQLList(GenusTypes) },
+    is_legendary: { type: GraphQLBoolean },
+    is_mythical: { type: GraphQLBoolean },
+    varieties: { type: new GraphQLList(VarietiesTypes) },
+  }),
+});
+
+// Species - Genus Types
+const GenusTypes = new GraphQLObjectType({
+  name: 'Genus',
+  fields: () => ({
+    genus: { type: GraphQLString },
+    language: {
+      type: new GraphQLObjectType({
+        name: 'GenusLanguage',
+        fields: () => ({
+          name: { type: GraphQLString },
+        }),
+      }),
+    },
+  }),
+});
+
+// Species - Names Types
+const NamesTypes = new GraphQLObjectType({
+  name: 'Names',
+  fields: () => ({
+    name: { type: GraphQLString },
+    language: {
+      type: new GraphQLObjectType({
+        name: 'NamesLanguage',
+        fields: () => ({
+          name: { type: GraphQLString },
+        }),
+      }),
+    },
+  }),
+});
+
+// Species - Varieties Types
+const VarietiesTypes = new GraphQLObjectType({
+  name: 'Varieties',
+  fields: () => ({
+    pokemon: {
+      type: new GraphQLObjectType({
+        name: 'VarietiesName',
+        fields: () => ({
+          name: { type: GraphQLString },
+          url: { type: GraphQLString },
         }),
       }),
     },
@@ -109,6 +171,40 @@ const RootQuery = new GraphQLObjectType({
       async resolve(parent, args) {
         const res = await axios.get(
           `https://pokeapi.co/api/v2/pokemon/${args.id}`
+        );
+        const data = await res.data;
+
+        return data;
+      },
+    },
+    species: {
+      type: new GraphQLList(SpeciesType),
+      async resolve(parent, args) {
+        const res = await axios.get(
+          'https://pokeapi.co/api/v2/pokemon-species'
+        );
+        const data = await res.data;
+
+        const results = await Promise.all(
+          data.results.map(async (result) => {
+            const res = await axios.get(result.url);
+            const data = await res.data;
+
+            return data;
+          })
+        );
+
+        return results;
+      },
+    },
+    specie: {
+      type: SpeciesType,
+      args: {
+        id: { type: GraphQLInt },
+      },
+      async resolve(parent, args) {
+        const res = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon-species/${args.id}`
         );
         const data = await res.data;
 
