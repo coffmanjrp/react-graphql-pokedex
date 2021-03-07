@@ -1,11 +1,14 @@
-import React from 'react';
+import { typeColor } from '../../utils';
 
 const ListItem = ({ pokemon }) => {
   const { id, name, species, sprites, types } = pokemon;
 
   return (
     <>
-      <div className="pokemon-list-item">
+      <div
+        className="pokemon-list-item"
+        style={{ backgroundColor: typeColor[types[0].type.name] }}
+      >
         <div className="img-container">
           <img src={sprites.front_default} alt={name} />
         </div>
@@ -17,7 +20,12 @@ const ListItem = ({ pokemon }) => {
           <p className="species">{species.genera[7].genus}</p>
           <small className="type">
             {types.map((type, index) => (
-              <span key={index}>{type.type.name}</span>
+              <span
+                key={index}
+                style={{ backgroundColor: typeColor[type.type.name] }}
+              >
+                {type.type.name}
+              </span>
             ))}
           </small>
         </div>
