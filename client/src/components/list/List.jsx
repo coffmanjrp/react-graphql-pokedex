@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
-import { pokemonListQuery } from '../../queries/queries';
+import { ListItem } from './';
+import { pokemonListQuery } from '../../utils/queries';
 
 const List = () => {
   const { data, error, loading } = useQuery(pokemonListQuery);
@@ -15,12 +16,7 @@ const List = () => {
   return (
     <div>
       {data.pokemons.map((pokemon) => (
-        <div>
-          <p># {pokemon.id}</p>
-          <h4>{pokemon.name}</h4>
-          <small>{pokemon.species.genera[7].genus}</small>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-        </div>
+        <ListItem key={pokemon.id} pokemon={pokemon} />
       ))}
     </div>
   );
