@@ -1,5 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { Header } from './components/layouts';
+import { Footer, Header } from './components/layouts';
 import { List } from './components/list';
 import './assets/css/App.css';
 
@@ -13,6 +13,7 @@ const App = () => {
     <ApolloProvider client={client}>
       <Header />
       <List />
+      <Footer />
     </ApolloProvider>
   );
 };
