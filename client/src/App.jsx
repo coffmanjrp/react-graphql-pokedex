@@ -10,6 +10,7 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
+      <h1>Pokedex</h1>
       <List />
     </ApolloProvider>
   );

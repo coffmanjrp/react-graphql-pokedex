@@ -2,17 +2,26 @@
 
 /* Variables */
 :root {
-  --main-fonts: 'Noto Sans', sans-serif;
-  --icon-fonts: FontAwesome, sans-serif;
-  --bg-color: var(--primary-color);
-  --bg-gradient: linear-gradient(to right, var(--primary-color), #f1ecf0);
-  --primary-color: #fffffe;
-  --secondary-color: #90b4ce;
+  --bg-color: #fcfcfc;
+  --bg-gradient: linear-gradient(to right, var(--bg-color), #f1ecf0);
+  --list-bg-color: #eee;
+  --primary-color: #d9230f;
+  --secondary-color: #fff;
   --tertiary-color: #ef4565;
+  --success-color: #469408;
+  --info-color: #029acf;
+  --warning-color: #d9831f;
+  --danger-color: #9b479f;
+  --light-color: #fff;
   --high-light-color: #3da9fc;
   --stroke-color: #094067;
-  --dark-color: #5f6c7b;
-  --list-bg-color: #eee;
+  --dark-color: #373a3c;
+  --main-fonts: 'Noto Sans', sans-serif;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
 }
 
 /* Basic styles */
