@@ -20,6 +20,7 @@ build
 .env.test.local
 .env.production.local
 .vscode
+memo.txt
 
 npm-debug.log*
 yarn-debug.log*
