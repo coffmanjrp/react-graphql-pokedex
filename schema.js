@@ -15,8 +15,6 @@ const RootQuery = new GraphQLObjectType({
     pokemons: {
       type: new GraphQLList(PokemonType),
       args: {
-        // offset: { type: GraphOLInt },
-        // limit: { type: GraphQLInt },
         offset: { type: GraphQLInt },
         limit: { type: GraphQLInt },
       },
