@@ -11,17 +11,13 @@ const List = () => {
   });
 
   useEffect(() => {
-    setPokemonIndex(generations[7]);
+    setPokemonIndex(generations[2]);
 
     // eslint-disable-next-line
   }, []);
 
   if (loading) {
     return <h4>Loading...</h4>;
-  }
-
-  if (error) {
-    console.log(error);
   }
 
   return (
