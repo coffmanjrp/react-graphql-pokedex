@@ -14,11 +14,13 @@ const List = () => {
   }
 
   return (
-    <div>
-      {data.pokemons.map((pokemon) => (
-        <ListItem key={pokemon.id} pokemon={pokemon} />
-      ))}
-    </div>
+    <>
+      <div className="list-container">
+        {data.pokemons.map((pokemon) => (
+          <ListItem key={pokemon.id} pokemon={pokemon} />
+        ))}
+      </div>
+    </>
   );
 };
 
