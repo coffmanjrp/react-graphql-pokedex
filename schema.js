@@ -1,6 +1,7 @@
 const axios = require('axios');
 const {
   GraphQLObjectType,
+  GraphQLInt,
   GraphQLID,
   GraphQLList,
   GraphQLSchema,
@@ -13,8 +14,16 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     pokemons: {
       type: new GraphQLList(PokemonType),
+      args: {
+        // offset: { type: GraphOLInt },
+        // limit: { type: GraphQLInt },
+        offset: { type: GraphQLInt },
+        limit: { type: GraphQLInt },
+      },
       async resolve(parent, args) {
-        const res = await axios.get('https://pokeapi.co/api/v2/pokemon');
+        const res = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon?offset=${args.offset}&limit=${args.limit}`
+        );
         const data = await res.data;
 
         const results = await Promise.all(

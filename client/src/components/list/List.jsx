@@ -3,7 +3,9 @@ import { ListItem } from './';
 import { pokemonListQuery } from '../../utils/queries';
 
 const List = () => {
-  const { data, error, loading } = useQuery(pokemonListQuery);
+  const { data, error, loading } = useQuery(pokemonListQuery, {
+    variables: { offset: 0, limit: 151 },
+  });
 
   if (loading) {
     return <h4>Loading...</h4>;
