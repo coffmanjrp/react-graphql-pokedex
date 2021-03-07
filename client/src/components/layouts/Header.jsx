@@ -2,7 +2,7 @@ import { CgPokemon } from 'react-icons/cg';
 const Navbar = ({ title }) => {
   return (
     <>
-      <div className="navbar">
+      <div className="navbar mb-5">
         <div />
         <h1>
           {title}
