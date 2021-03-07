@@ -357,3 +357,137 @@ svg {
   border-radius: 10px;
   font-size: 0.3rem;
 }
+
+/* Navbar */
+.navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.7rem 2rem;
+  width: 100%;
+  background-color: var(--secondary-color);
+  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  color: var(--primary-color);
+  z-index: 100;
+}
+
+.navbar h1 {
+  letter-spacing: 0.1875rem;
+}
+
+.navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar a {
+  margin: 0 0.25rem;
+  padding: 0.45rem;
+  color: #fff;
+}
+
+.navbar a:hover {
+  color: var(--dark-color);
+}
+
+.menu-bars {
+  position: absolute;
+  top: 5px;
+  right: 45px;
+  width: 32px;
+  height: 32px;
+  font-size: 2rem;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--secondary-color);
+  -webkit-transition: right 0.45s ease-out;
+  transition: right 0.45s ease-out;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+.nav-menu-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 80px;
+  width: 100%;
+}
+
+.nav-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 0 0.5rem 1rem;
+  height: 60px;
+}
+
+.nav-text a {
+  padding: 0.5rem 1rem;
+  width: 90%;
+  border-radius: 5px;
+  font-size: 1.125rem;
+  color: var(--primary-color);
+}
+
+.nav-text span {
+  margin-left: 1rem;
+}
+
+.navbar-toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    display: block;
+    text-align: center;
+  }
+  .navbar ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+}
