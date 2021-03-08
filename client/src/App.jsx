@@ -13,7 +13,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Header />
+        <Header title={'Pokédex'} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route component={NotFound} />

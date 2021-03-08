@@ -33,8 +33,4 @@ const Navbar = ({ title }) => {
   );
 };
 
-Navbar.defaultProps = {
-  title: 'Pokedex',
-};
-
 export default Navbar;
