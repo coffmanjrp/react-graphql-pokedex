@@ -1,4 +1,4 @@
-import { useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { CgPokemon } from 'react-icons/cg';
 import { FaChevronLeft } from 'react-icons/fa';
 import { Sidebar } from './';
@@ -16,9 +16,9 @@ const Navbar = ({ title }) => {
       <div className="navbar mb-5">
         <div>
           {location.pathname !== '/' ? (
-            <a href="#!" onClick={handleGoBack}>
+            <Link to="#" onClick={handleGoBack}>
               <FaChevronLeft />
-            </a>
+            </Link>
           ) : (
             ''
           )}

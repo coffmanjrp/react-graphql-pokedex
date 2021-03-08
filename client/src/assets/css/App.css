@@ -649,15 +649,6 @@ svg {
   margin: 0 0.25rem;
   padding: 0.45rem;
   color: var(--primary-color);
-  -webkit-transition: -webkit-transform 300ms ease-out;
-  transition: -webkit-transform 300ms ease-out;
-  transition: transform 300ms ease-out;
-  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
-}
-
-.navbar a:hover {
-  -webkit-transform: scale(1.15);
-          transform: scale(1.15);
 }
 
 .menu-bars {
@@ -675,7 +666,7 @@ svg {
   right: -100%;
   width: 250px;
   height: 100vh;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   -webkit-transition: right 0.45s ease-out;
   transition: right 0.45s ease-out;
 }
@@ -696,6 +687,10 @@ svg {
   width: 100%;
 }
 
+.nav-menu a {
+  color: var(--secondary-color);
+}
+
 .nav-text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -708,6 +703,7 @@ svg {
           align-items: center;
   padding: 0.5rem 0 0.5rem 1rem;
   height: 60px;
+  color: var(--secondary-color);
 }
 
 .nav-text a {
@@ -715,7 +711,7 @@ svg {
   width: 90%;
   border-radius: 5px;
   font-size: 1.125rem;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .nav-text span {
