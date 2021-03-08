@@ -11,7 +11,7 @@ const List = () => {
   });
 
   useEffect(() => {
-    setPokemonIndex(generations[2]);
+    setPokemonIndex(generations[0]);
 
     // eslint-disable-next-line
   }, []);
