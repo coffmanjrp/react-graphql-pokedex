@@ -2,10 +2,14 @@
 /* Variables */
 :root {
   --bg-color: #fcfcfc;
-  --bg-gradient: linear-gradient(to right, var(--bg-color), #f1ecf0);
+  --bg-gradient: linear-gradient(
+    to right,
+    var(--bg-color),
+    var(--secondary-color)
+  );
   --list-bg-color: #eee;
   --primary-color: #d9230f;
-  --secondary-color: #fff;
+  --secondary-color: #f1ecf0;
   --tertiary-color: #ef4565;
   --success-color: #469408;
   --info-color: #029acf;
@@ -34,12 +38,20 @@
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   background-color: var(--bg-color);
   background-image: var(--bg-gradient);
   font-family: var(--main-fonts);
   font-size: 1rem;
   color: var(--dark-color);
   line-height: 1.6;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 8rem;
 }
 
 a {
@@ -602,6 +614,7 @@ svg {
 .navbar {
   position: relative;
   top: 0;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -631,11 +644,16 @@ svg {
 .navbar a {
   margin: 0 0.25rem;
   padding: 0.45rem;
-  color: #fff;
+  color: var(--primary-color);
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
 }
 
 .navbar a:hover {
-  color: var(--dark-color);
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 .menu-bars {
@@ -726,4 +744,11 @@ svg {
             justify-content: center;
     text-align: center;
   }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
 }
