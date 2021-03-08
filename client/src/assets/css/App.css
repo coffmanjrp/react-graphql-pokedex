@@ -8,13 +8,13 @@
     var(--secondary-color)
   );
   --list-bg-color: #eee;
-  --primary-color: #d9230f;
+  --primary-color: #eb6864;
   --secondary-color: #f1ecf0;
   --tertiary-color: #ef4565;
   --success-color: #469408;
   --info-color: #029acf;
   --warning-color: #d9831f;
-  --danger-color: #9b479f;
+  --danger-color: #d9230f;
   --light-color: #fff;
   --high-light-color: #3da9fc;
   --stroke-color: #094067;
@@ -502,9 +502,9 @@ svg {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: space-between;
-      -ms-flex-align: space-between;
-          align-items: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 auto;
   max-width: 1200px;
 }
@@ -667,6 +667,8 @@ svg {
   width: 250px;
   height: 100vh;
   background-color: var(--primary-color);
+  -webkit-box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   -webkit-transition: right 0.45s ease-out;
   transition: right 0.45s ease-out;
 }
