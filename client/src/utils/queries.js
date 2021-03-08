@@ -6,6 +6,12 @@ const pokemonListQuery = gql`
       id
       name
       species {
+        names {
+          name
+          language {
+            name
+          }
+        }
         genera {
           genus
         }

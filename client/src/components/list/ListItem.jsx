@@ -1,6 +1,6 @@
 import { typeColor } from '../../utils';
 
-const ListItem = ({ pokemon }) => {
+const ListItem = ({ pokemon, language }) => {
   const { id, name, species, sprites, types } = pokemon;
 
   return (
@@ -15,9 +15,19 @@ const ListItem = ({ pokemon }) => {
         <div className="overview">
           <div className="number">No.{id}</div>
           <h3 className="name">
-            {name.charAt(0).toUpperCase() + name.slice(1)}
+            {language === 'en'
+              ? name.charAt(0).toUpperCase() + name.slice(1)
+              : language === 'ja'
+              ? species.names[0].name
+              : 'This language is not available'}
           </h3>
-          <p className="species">{species.genera[7].genus}</p>
+          <p className="species">
+            {language === 'en'
+              ? species.genera[7].genus
+              : language === 'ja'
+              ? species.genera[0].genus
+              : 'This language is not available'}
+          </p>
           <small className="type">
             {types.map((type, index) => (
               <span
