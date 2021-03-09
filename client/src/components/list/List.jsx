@@ -13,7 +13,7 @@ const List = () => {
   });
 
   useEffect(() => {
-    setPokemonIndex(generations[0]);
+    setPokemonIndex(generations[1]);
     setLanguage('ja');
 
     // eslint-disable-next-line

@@ -465,7 +465,7 @@ svg {
   &-primary {
     color: var(--light-color);
     background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     &:hover {
       opacity: 0.98;
     }
@@ -476,7 +476,7 @@ svg {
   &-secondary {
     color: var(--dark-color);
     background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+    border: 1px solid var(--list-bg-color);
     &:hover {
       opacity: 0.98;
     }
@@ -487,13 +487,17 @@ svg {
   &-tertiary {
     color: var(--light-color);
     background-color: var(--tertiary-color);
-    border-color: var(--tertiary-color);
+    border: 1px solid var(--tertiary-color);
     &:hover {
       opacity: 0.98;
     }
     &:focus {
       box-shadow: 0 0 0 3.2px rgba(223, 69, 51, 0.5);
     }
+  }
+  &-block {
+    display: block;
+    width: 100%;
   }
   &-group {
     position: relative;
@@ -672,7 +676,8 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 0 0.5rem 1rem;
+  margin: 0 1rem;
+  padding: 0.5rem 0 1rem;
   height: 60px;
   color: var(--secondary-color);
   a {
