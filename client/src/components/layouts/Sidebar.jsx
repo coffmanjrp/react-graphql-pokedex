@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { ToggleButtonGroup } from '../inputs';
 import { sidebarData } from '../../utils';
 
 const Sidebar = () => {
@@ -35,16 +36,21 @@ const Sidebar = () => {
           <Link to="#" className="menu-bars" onClick={showSidebar}>
             <FaTimes />
           </Link>
-          <ul className="nav-menu-items">
-            {sidebarData.length > 0 &&
-              sidebarData.map((item, index) => (
-                <li key={index} className="nav-text">
-                  <Link to={item.path} onClick={showSidebar}>
-                    {item.icon} <span>{item.title}</span>
-                  </Link>
-                </li>
-              ))}
-          </ul>
+          <div>
+            <ul className="nav-menu-items">
+              <li className="nav-text">
+                <ToggleButtonGroup labels={['En', 'Ja']} />
+              </li>
+              {sidebarData.length > 0 &&
+                sidebarData.map((item, index) => (
+                  <li key={index} className="nav-text">
+                    <Link to={item.path} onClick={showSidebar}>
+                      {item.icon} <span>{item.title}</span>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </div>
         </nav>
       </div>
     </>

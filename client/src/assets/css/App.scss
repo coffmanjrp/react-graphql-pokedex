@@ -432,6 +432,96 @@ svg {
   display: grid;
 }
 
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--dark-color);
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3.2px rgba(#ef4565, 0.25);
+  }
+  &.disabled,
+  &:disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+  &:not(:disabled),
+  &:not(.disabled) {
+    cursor: pointer;
+  }
+  &-primary {
+    color: var(--light-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    &:hover {
+      opacity: 0.98;
+    }
+    &:focus {
+      box-shadow: 0 0 0 3.2px rgba(223, 69, 51, 0.5);
+    }
+  }
+  &-secondary {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    &:hover {
+      opacity: 0.98;
+    }
+    &:focus {
+      box-shadow: 0 0 0 3.2px rgba(#fcfcfc, 0.5);
+    }
+  }
+  &-tertiary {
+    color: var(--light-color);
+    background-color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+    &:hover {
+      opacity: 0.98;
+    }
+    &:focus {
+      box-shadow: 0 0 0 3.2px rgba(223, 69, 51, 0.5);
+    }
+  }
+  &-group {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    > .btn {
+      position: relative;
+      flex: 1 1 auto;
+      &.active,
+      &:hover,
+      &:active,
+      &:focus {
+        z-index: 1;
+      }
+      &:not(:first-child) {
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+    &-toggle {
+      > .btn {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 /* list */
 .list-container {
   display: flex;
