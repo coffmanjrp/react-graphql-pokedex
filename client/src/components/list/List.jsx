@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { ListItem } from './';
+import { Loading } from '../layouts';
 import { generations } from '../../utils';
 import { pokemonListQuery } from '../../utils/queries';
 
@@ -19,7 +20,7 @@ const List = () => {
   }, []);
 
   if (loading) {
-    return <h4>Loading...</h4>;
+    return <Loading />;
   }
 
   return (
