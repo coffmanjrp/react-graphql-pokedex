@@ -1,13 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { ListItem } from './';
 import { Loading } from '../layouts';
 import { generations } from '../../utils';
 import { pokemonListQuery } from '../../utils/queries';
+import { PokemonContext } from '../../context/pokemon';
 
 const List = () => {
-  const [pokemonIndex, setPokemonIndex] = useState([]);
-  const [language, setLanguage] = useState('en');
+  const pokemonContext = useContext(PokemonContext);
+  const {
+    pokemonIndex,
+    setPokemonIndex,
+    language,
+    setLanguage,
+  } = pokemonContext;
   const { data, error, loading } = useQuery(pokemonListQuery, {
     variables: { offset: pokemonIndex[0], limit: pokemonIndex[1] },
   });

@@ -1,0 +1,2 @@
+export const SET_POKEMON_INDEX = 'SET_POKEMON_INDEX';
+export const SET_LANGUAGE = 'SET_LANGUAGE';
