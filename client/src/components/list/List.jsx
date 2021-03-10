@@ -20,7 +20,7 @@ const List = () => {
 
   useEffect(() => {
     setPokemonIndex(generations[1]);
-    setLanguage('en');
+    setLanguage(localStorage.getItem('language'));
 
     // eslint-disable-next-line
   }, []);

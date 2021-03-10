@@ -7,7 +7,8 @@ const LanguageButton = () => {
   const { setLanguage } = pokemonContext;
 
   const handleLanguage = (e) => {
-    setLanguage(e.target.value);
+    localStorage.setItem('language', e.target.value);
+    setLanguage(localStorage.getItem('language'));
   };
 
   return (
