@@ -11,7 +11,7 @@ const List = () => {
   const {
     pokemonIndex,
     setPokemonIndex,
-    language,
+    generation,
     setLanguage,
   } = pokemonContext;
   const { data, error, loading } = useQuery(pokemonListQuery, {
@@ -19,11 +19,16 @@ const List = () => {
   });
 
   useEffect(() => {
-    setPokemonIndex(generations[1]);
     setLanguage(localStorage.getItem('language'));
 
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    setPokemonIndex(generations[generation]);
+
+    // eslint-disable-next-line
+  }, [generation]);
 
   if (loading) {
     return <Loading />;
@@ -34,7 +39,7 @@ const List = () => {
       <div className="list-container">
         {!error ? (
           data.pokemons.map((pokemon) => (
-            <ListItem key={pokemon.id} pokemon={pokemon} language={language} />
+            <ListItem key={pokemon.id} pokemon={pokemon} />
           ))
         ) : (
           <h3>Error</h3>

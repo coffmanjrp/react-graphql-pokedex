@@ -1,3 +1,11 @@
 export { default as About } from './About';
+export { default as Eighth } from './Eighth';
+export { default as Fifth } from './Fifth';
+export { default as Fourth } from './Fourth';
+export { default as First } from './First';
 export { default as Home } from './Home';
 export { default as NotFound } from './NotFound';
+export { default as Second } from './Second';
+export { default as Seventh } from './Seventh';
+export { default as Sixth } from './Sixth';
+export { default as Third } from './Third';
