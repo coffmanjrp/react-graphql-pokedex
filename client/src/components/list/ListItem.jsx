@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import { typeColor } from '../../utils';
+import { PokemonContext } from '../../context/pokemon';
 
-const ListItem = ({ pokemon, language }) => {
+const ListItem = ({ pokemon }) => {
+  const pokemonContext = useContext(PokemonContext);
+  const { language } = pokemonContext;
   const { id, name, species, sprites, types } = pokemon;
 
   return (
