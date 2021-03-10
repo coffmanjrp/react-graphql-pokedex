@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { ToggleButtonGroup } from '../inputs';
+import { LanguageButton } from '../inputs';
 import { sidebarData } from '../../utils';
 
 const Sidebar = () => {
@@ -39,7 +39,7 @@ const Sidebar = () => {
           <div>
             <ul className="nav-menu-items">
               <li className="nav-text">
-                <ToggleButtonGroup labels={['En', 'Ja']} />
+                <LanguageButton />
               </li>
               {sidebarData.length > 0 &&
                 sidebarData.map((item, index) => (
