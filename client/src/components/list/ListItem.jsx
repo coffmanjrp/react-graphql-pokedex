@@ -22,14 +22,16 @@ const ListItem = ({ pokemon }) => {
             {language === 'en'
               ? name.charAt(0).toUpperCase() + name.slice(1)
               : language === 'ja'
-              ? species.names[0].name
+              ? species.names.find((name) => name.language.name === 'ja-Hrkt')
+                  .name
               : 'This language is not available'}
           </h3>
           <p className="species">
             {language === 'en'
-              ? species.genera[7].genus
+              ? species.genera.find((gen) => gen.language.name === 'en').genus
               : language === 'ja'
-              ? species.genera[0].genus
+              ? species.genera.find((gen) => gen.language.name === 'ja-Hrkt')
+                  .genus
               : 'This language is not available'}
           </p>
           <small className="type">

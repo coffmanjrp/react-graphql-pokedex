@@ -14,6 +14,9 @@ const pokemonListQuery = gql`
         }
         genera {
           genus
+          language {
+            name
+          }
         }
       }
       sprites {
