@@ -4,12 +4,12 @@ import { PokemonContext } from '../../context/pokemon';
 
 const Sixth = () => {
   const pokemonContext = useContext(PokemonContext);
-  const { setGeneration } = pokemonContext;
+  const { setGeneration, clearState } = pokemonContext;
 
   useEffect(() => {
     setGeneration(5);
 
-    return () => setGeneration(0);
+    return () => clearState();
     // eslint-disable-next-line
   }, []);
 

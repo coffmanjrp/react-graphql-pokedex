@@ -1,4 +1,9 @@
-import { SET_POKEMON_INDEX, SET_GENERATION, SET_LANGUAGE } from '../types';
+import {
+  SET_POKEMON_INDEX,
+  SET_GENERATION,
+  SET_LANGUAGE,
+  CLEAR_STATE,
+} from '../types';
 
 const pokemonReducer = (state, action) => {
   switch (action.type) {
@@ -16,6 +21,13 @@ const pokemonReducer = (state, action) => {
       return {
         ...state,
         language: action.payload,
+      };
+    case CLEAR_STATE:
+      return {
+        ...state,
+        pokemonIndex: [],
+        generation: null,
+        language: '',
       };
     default:
       return state;

@@ -1,6 +1,11 @@
 import { useReducer } from 'react';
 import { PokemonContext, pokemonReducer } from './';
-import { SET_POKEMON_INDEX, SET_GENERATION, SET_LANGUAGE } from '../types';
+import {
+  SET_POKEMON_INDEX,
+  SET_GENERATION,
+  SET_LANGUAGE,
+  CLEAR_STATE,
+} from '../types';
 
 const PokemonState = ({ children }) => {
   const initialState = {
@@ -20,6 +25,10 @@ const PokemonState = ({ children }) => {
   const setLanguage = (language) =>
     dispatch({ type: SET_LANGUAGE, payload: language });
 
+  const clearState = () => {
+    dispatch({ type: CLEAR_STATE });
+  };
+
   return (
     <PokemonContext.Provider
       value={{
@@ -29,6 +38,7 @@ const PokemonState = ({ children }) => {
         setPokemonIndex,
         setGeneration,
         setLanguage,
+        clearState,
       }}
     >
       {children}

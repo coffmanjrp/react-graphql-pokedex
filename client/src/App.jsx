@@ -29,7 +29,7 @@ const App = () => {
         <Router>
           <Header title={'Pokédex'} />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={First} />
             <Route exact path="/about" component={About} />
             <Route exact path="/first" component={First} />
             <Route exact path="/second" component={Second} />
