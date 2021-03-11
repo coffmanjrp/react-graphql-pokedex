@@ -23,8 +23,12 @@ const pokemonListQuery = gql`
         front_default
       }
       types {
-        type {
+        name
+        names {
           name
+          language {
+            name
+          }
         }
       }
     }

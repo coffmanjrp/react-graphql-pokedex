@@ -11,7 +11,7 @@ const ListItem = ({ pokemon }) => {
     <>
       <div
         className="pokemon-list-item"
-        style={{ backgroundColor: typeColor[types[0].type.name] }}
+        style={{ backgroundColor: typeColor[types[0].name] }}
       >
         <div className="img-container">
           <img src={sprites.front_default} alt={name} />
@@ -35,14 +35,28 @@ const ListItem = ({ pokemon }) => {
               : 'This language is not available'}
           </p>
           <small className="type">
-            {types.map((type, index) => (
-              <span
-                key={index}
-                style={{ backgroundColor: typeColor[type.type.name] }}
-              >
-                {type.type.name}
-              </span>
-            ))}
+            {language === 'en'
+              ? types.map((type, index) => (
+                  <span
+                    key={index}
+                    style={{ backgroundColor: typeColor[type.name] }}
+                  >
+                    {type.name}
+                  </span>
+                ))
+              : language === 'ja'
+              ? types.map((type, index) => (
+                  <span
+                    key={index}
+                    style={{ backgroundColor: typeColor[type.name] }}
+                  >
+                    {
+                      type.names.find((tp) => tp.language.name === 'ja-Hrkt')
+                        .name
+                    }
+                  </span>
+                ))
+              : 'This language is not available'}
           </small>
         </div>
       </div>

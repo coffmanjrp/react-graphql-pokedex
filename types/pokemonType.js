@@ -7,6 +7,7 @@ const {
   GraphQLList,
 } = require('graphql');
 const SpeciesType = require('./speciesType');
+const TypesType = require('./typesType');
 
 // Pokemon Types
 const PokemonType = new GraphQLObjectType({
@@ -26,7 +27,19 @@ const PokemonType = new GraphQLObjectType({
     sprites: { type: SpritesType },
     abilities: { type: new GraphQLList(AbilitiesType) },
     stats: { type: new GraphQLList(StatsType) },
-    types: { type: new GraphQLList(TypesType) },
+    types: {
+      type: new GraphQLList(TypesType),
+      async resolve(parent, args) {
+        const results = await Promise.all(
+          parent.types.map(async (result) => {
+            const res = await axios.get(result.type.url);
+            return res.data;
+          })
+        );
+
+        return results;
+      },
+    },
   }),
 });
 
@@ -63,21 +76,6 @@ const StatsType = new GraphQLObjectType({
     stat: {
       type: new GraphQLObjectType({
         name: 'Stat',
-        fields: () => ({
-          name: { type: GraphQLString },
-        }),
-      }),
-    },
-  }),
-});
-
-// Pokemon - Types Type
-const TypesType = new GraphQLObjectType({
-  name: 'Types',
-  fields: () => ({
-    type: {
-      type: new GraphQLObjectType({
-        name: 'Type',
         fields: () => ({
           name: { type: GraphQLString },
         }),

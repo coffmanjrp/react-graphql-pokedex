@@ -27,9 +27,7 @@ const RootQuery = new GraphQLObjectType({
         const results = await Promise.all(
           data.results.map(async (result) => {
             const res = await axios.get(result.url);
-            const data = await res.data;
-
-            return data;
+            return res.data;
           })
         );
 
