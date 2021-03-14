@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { LanguageButton } from '../inputs';
-import { sidebarData } from '../../utils';
+import { LanguageButton } from 'components/inputs';
+import { sidebarData } from 'utils';
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);

@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { ListItem } from './';
-import { Loading } from '../layouts';
-import { generations } from '../../utils';
-import { pokemonListQuery } from '../../utils/queries';
-import { PokemonContext } from '../../context/pokemon';
+import { Loading } from 'components/layouts';
+import { generations } from 'utils';
+import { pokemonListQuery } from 'utils/queries';
+import { PokemonContext } from 'context/pokemon';
 
 const List = () => {
   const pokemonContext = useContext(PokemonContext);

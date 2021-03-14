@@ -1,9 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { Footer, Header } from './components/layouts';
+import { Footer, Header } from 'components/layouts';
 import {
   About,
-  Home,
   NotFound,
   First,
   Second,
@@ -13,9 +12,9 @@ import {
   Sixth,
   Seventh,
   Eighth,
-} from './components/pages';
-import { PokemonState } from './context/pokemon';
-import './assets/css/App.css';
+} from 'components/pages';
+import { PokemonState } from 'context/pokemon';
+import 'assets/css/App.css';
 
 const client = new ApolloClient({
   uri: '/graphql',

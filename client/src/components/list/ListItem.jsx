@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { typeColor } from '../../utils';
-import { PokemonContext } from '../../context/pokemon';
+import { typeColor } from 'utils';
+import { PokemonContext } from 'context/pokemon';
 
 const ListItem = ({ pokemon }) => {
   const pokemonContext = useContext(PokemonContext);
@@ -51,8 +51,9 @@ const ListItem = ({ pokemon }) => {
                     style={{ backgroundColor: typeColor[type.name] }}
                   >
                     {
-                      type.names.find((tp) => tp.language.name === 'ja-Hrkt')
-                        .name
+                      type.names.find(
+                        (name) => name.language.name === 'ja-Hrkt'
+                      ).name
                     }
                   </span>
                 ))

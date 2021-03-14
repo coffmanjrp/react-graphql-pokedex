@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ToggleButtonGroup } from './';
-import { PokemonContext } from '../../context/pokemon';
+import { PokemonContext } from 'context/pokemon';
 
 const LanguageButton = () => {
   const pokemonContext = useContext(PokemonContext);

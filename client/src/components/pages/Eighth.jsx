@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { List } from '../list';
-import { PokemonContext } from '../../context/pokemon';
+import { List } from 'components/list';
+import { PokemonContext } from 'context/pokemon';
 
 const Eighth = () => {
   const pokemonContext = useContext(PokemonContext);

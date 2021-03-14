@@ -1,4 +1,4 @@
-import loader from '../../assets/image/loading.png';
+import loader from 'assets/image/loading.png';
 
 const Loading = () => {
   return (
